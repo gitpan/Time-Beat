@@ -1,4 +1,6 @@
+CHANGES
 lib/Time/Beat.pm
 MANIFEST
 Makefile.PL
+README
 t/beat.t

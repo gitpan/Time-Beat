@@ -1,0 +1,22 @@
+1.2	2003-08-16
+
+	* SPOON provided patches to fix an inaccurate time conversion routine
+	  and refactor the code a little, and expand the tests.
+
+	* The method names have changed from "beattime", "timebeat12" and 
+	  "timebeat24" to the neater and less-confusing "beats", "time12"
+	  and "time24". The old ones will continue to work, but they have
+	  been deprecated and will be removed at some point in the future.
+
+1.1	2003-08-13
+
+	* EMARTIN took over maintainership from JDUNCAN.
+	* Module can now convert to and from .beats in 12- and 24-hour format. 
+
+1.02	1999-08-30
+
+	* Fixed problem caused by hour becoming 24 if gmtime.hours == 23.
+
+1.0	1999-01-11
+
+	* Initial release.

@@ -1,0 +1,59 @@
+NAME
+       Time::Beat - Module to convert between standard time and Swatch 
+       ".beat" time.
+
+DESCRIPTION
+       "Time::Beat" is a module to convert normal time to and from .beats,
+       of which there are a thousand in a day. It can change normal time in 
+       time() format to .beats, and .beats into either 24-hour or 12-hour 
+       normal time.
+
+SYNOPSIS
+           use Time::Beat qw(beat time24 time12);
+
+           my $time_in_beats = beats($time);
+
+           my $beats_in_24hr_time = time24($beat);
+
+           my $beats_in_12hr_time = time12($beat);
+
+METHODS
+       There are three methods in Time::Beat.
+
+       o beats($time)
+           "beats" will give you the current time in .beats if you do not
+           specify a time string. If you specify a string in "time()" 
+           format it will return that particular time in .beats. The basic 
+           algorithm for doing this is to take the time in GMT+1 hour, 
+           convert it into seconds, and divide by 86.4.
+
+       o time24($beat)
+           "time24" takes a 3-digit beat time and outputs a 24-hour time
+           along the lines of "12:34:56". The hours will have leading 
+           noughts.
+
+       o time12($beat)
+           "time12" takes a 3-digit beat time and outputs a 12-hour time
+           along the lines of "12:34:56 am" or "12:34:56 pm". Hours do not 
+           have leading noughts.
+
+CHANGES
+       Important: As of v1.2 the method names have changed. The former
+       method names, "beattime", "timebeat24" and "timebeat12" will still 
+       work, but they have been deprecated, and will be removed at some 
+       point in the future.
+
+AUTHOR
+       Earle Martin <emartin@cpan.org>. Originally written by James Duncan
+       <jduncan@fotango.com>.
+
+SEE ALSO
+       o DateTime::Format::IBeat
+           This module by Iain Truskett <spoon@cpan.org> does much the same
+           thing but in an OO fashion, and is part of the DateTime project; 
+           if you need something more sophisticated, I would suggest you 
+           look into that. My thanks also to Iain for contributing patches 
+           to this module.
+
+       o The .beat home page
+           <http://www.swatch.com/itime_tools/itime.php>
