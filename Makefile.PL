@@ -3,6 +3,6 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     NAME	 => 'Time::Beat',
-    VERSION_FROM => 'Beat.pm',
+    VERSION_FROM => 'lib/Time/Beat.pm',
     dist         => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
 );

@@ -1,3 +1,4 @@
-Beat.pm
+lib/Time/Beat.pm
 MANIFEST
 Makefile.PL
+t/beat.t
