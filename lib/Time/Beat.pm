@@ -3,7 +3,7 @@ package Time::Beat;
 use strict;
 use vars qw ( $VERSION @EXPORT_OK );
 
-$VERSION = '1.2';
+$VERSION = '1.21';
 
 use Carp qw( croak );
 use Exporter;
@@ -17,22 +17,22 @@ sub beats {
 
     my $time = shift || time();
 
-    unless ($time =~ /^\d+$/ and length($time) == 10) {
+    unless ( $time =~ /^\d+$/ ) {
         croak "You can only use the 'beats' method with a number in the time() format."
     }
 
-    return sprintf "%d", (($time+3600) % 86400) / 86.4;
+    return sprintf "%d", ( ( $time+3600 ) % 86400 ) / 86.4;
 }
 
 sub _beats_to_time {
 
     my $beat = shift;
 
-    my $totalsecs = ($beat * 86.4);
+    my $totalsecs = ( $beat * 86.4 );
     my $totalmins = int( $totalsecs / 60 );
     my $hours     = int( $totalmins / 60 );
-    my $mins      = ($totalmins % 60);
-    my $secs      = (($totalsecs % 3600) % 60);
+    my $mins      = ( $totalmins % 60 );
+    my $secs      = ( ( $totalsecs % 3600 ) % 60 );
     $hours--;
     $hours = 23 if $hours < 0;
     return ( $hours, $mins, $secs );
@@ -42,7 +42,7 @@ sub time24 {
 
     my $beat = shift;
 
-    unless ($beat =~ /^\d+$/ and $beat >= 000 and $beat <= 999) {
+    unless ( $beat =~ /^\d+$/ and $beat >= 000 and $beat <= 999 ) {
         return "You can only use the 'time24' method with a number in the range 000-999."
     }
 
@@ -53,11 +53,11 @@ sub time12 {
 
     my $beat = shift;
 
-    unless ($beat =~ /^\d+$/ && $beat >= 000 and $beat <= 999) {
+    unless ( $beat =~ /^\d+$/ && $beat >= 000 and $beat <= 999 ) {
         return "You can only use the 'time12' method with a number in the range 000-999."
     }
 
-    my ($hours, $mins, $secs) = _beats_to_time( $beat );
+    my ( $hours, $mins, $secs ) = _beats_to_time( $beat );
 
     my $meridiem = ( $hours >= 12 ) ? "pm" : "am";
     $hours = $hours - 12 if $hours > 12;
@@ -142,6 +142,13 @@ have been B<deprecated>, and will be removed at some point in the future.
 
 Earle Martin <emartin@cpan.org>. Originally written by James Duncan
 <jduncan@fotango.com>.
+
+=head1 LICENSE
+
+This work is licensed under the Creative Commons Attribution-ShareAlike
+License. To view a copy of this license, visit
+L<http://creativecommons.org/licenses/by-sa/1.0/> or send a letter to Creative
+Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA. 
 
 =head1 SEE ALSO
 

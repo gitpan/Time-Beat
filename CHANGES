@@ -1,3 +1,10 @@
+1.21	2003-08-16
+
+	* Updated method names in test to new ones, which should have
+	happened in 1.2.
+	* Removed unnecessary length check on string passed to beats()
+	(pointed out by KWILLIAMS, thanks).
+
 1.2	2003-08-16
 
 	* SPOON provided patches to fix an inaccurate time conversion routine
